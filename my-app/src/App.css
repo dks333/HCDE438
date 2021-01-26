@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+  background: #67b26f; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4ca2cd,
+    #67b26f
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4ca2cd,
+    #67b26f
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid white;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+.logo {
+  height: 1.8rem;
+  width: 1.8rem;
+  margin-right: 10px;
+  background: url(https://emoji.slack-edge.com/T01HUNLEC2E/partyparrot/f239540fcb56c0b4.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
