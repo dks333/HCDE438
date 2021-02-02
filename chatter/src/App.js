@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import TextInput from './TextInput';
+import { useState } from 'react';
+import Message from './Message'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  const [messages,setMessages] = useState([{text:'hello'}])
+
+  return <div className="App">
+    <header className="header">
+      <div className="logo" />
+      CHATTER
+    </header>
+
+    <div className="messages">
+      {messages.map((m,i)=> {
+        return <Message key={i} {...m} />
+      })}
     </div>
-  );
+
+    <TextInput 
+      send={(t) => setMessages( [ {text:t} ,...messages] )}
+    />
+  </div>
 }
 
 export default App;
