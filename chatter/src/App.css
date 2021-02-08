@@ -30,6 +30,7 @@
   font-size: 1.2rem;
   color: white;
   font-weight: bold;
+  justify-content: space-between;
 }
 .logo {
   height: 1.8rem;
@@ -39,6 +40,13 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: auto;
 }
 
 .messages {
@@ -149,4 +157,10 @@
 .send-buttonx[disabled] {
   cursor: default;
   background: grey;
+}
+
+.name-picker {
+  display: flex;
+  flex-direction: row;
+  float: right;
 }
