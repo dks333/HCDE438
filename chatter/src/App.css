@@ -57,15 +57,24 @@
 }
 .message-row {
   width: 100%;
+  display: flex;
 }
 .message {
   background: black;
-  float: left;
   color: white;
   border-radius: 10px;
-  margin: 4px;
-  display: block;
+  margin: 7px;
+  display: inline-block;
   padding: 4px 12px;
+  position: relative;
+}
+.message-name {
+  position: absolute;
+  top: -10px;
+  left: 7px;
+  font-size: 0.55rem;
+  color: black;
+  font-weight: bold;
 }
 
 .text-input {

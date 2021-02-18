@@ -3,9 +3,23 @@ import TextInput from "./TextInput";
 import { useState } from "react";
 import Message from "./Message";
 import NamePicker from "./NamePicker";
+import { db, useDB } from "./db";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-function App() {
-  const [messages, setMessages] = useState([]);
+export default function Wrap() {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route exact path="/:room" component={App} />
+      </Switch>
+    </BrowserRouter>
+  );
+}
+
+function App(props) {
+  const room = props.match.params.room || "home";
+  const messages = useDB(room);
   const [username, setUsername] = useState("");
 
   return (
@@ -19,15 +33,18 @@ function App() {
         <NamePicker saveName={setUsername} />
       </header>
 
-      <div className="messages">
-        {messages.map((m, i) => {
-          return <Message key={i} {...m} />;
+      <main className="messages">
+        {messages.map((msg, i) => {
+          const isMe = msg.name === username;
+          return <Message key={i} {...msg} isMe={isMe} />;
         })}
-      </div>
+      </main>
 
-      <TextInput send={(t) => setMessages([{ text: t }, ...messages])} />
+      <TextInput
+        send={(t) =>
+          db.send({ text: t, name: username, date: new Date(), room })
+        }
+      ></TextInput>
     </div>
   );
 }
-
-export default App;
