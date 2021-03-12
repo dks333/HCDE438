@@ -1,0 +1,10 @@
+[debug] [2021-02-18T02:57:19.790Z] ----------------------------------------------------------------------
+[debug] [2021-02-18T02:57:19.791Z] Command:       /Users/apple/.nvm/versions/node/v15.0.1/bin/node /Users/apple/.nvm/versions/node/v15.0.1/bin/firebase login
+[debug] [2021-02-18T02:57:19.792Z] CLI Version:   8.15.0
+[debug] [2021-02-18T02:57:19.792Z] Platform:      darwin
+[debug] [2021-02-18T02:57:19.792Z] Node Version:  v15.0.1
+[debug] [2021-02-18T02:57:19.793Z] Time:          Thu Feb 18 2021 10:57:19 GMT+0800 (China Standard Time)
+[debug] [2021-02-18T02:57:19.793Z] ----------------------------------------------------------------------
+[debug] [2021-02-18T02:57:19.793Z] 
+[info] i  Firebase optionally collects CLI usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
