@@ -16,7 +16,7 @@ function App() {
           return <Comment key={i} comment={comment} />;
         })}
       </main>
-      <PopupForm />
+      <PopupForm send={(t) => console.log(t)} />
     </div>
   );
 }

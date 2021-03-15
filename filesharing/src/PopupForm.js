@@ -7,8 +7,16 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-export default function PopupForm() {
+export default function PopupForm(props) {
   const [open, setOpen] = React.useState(false);
+  const [text, setText] = React.useState("");
+
+  function addComment() {
+    setOpen(false);
+    if (text === "") return; // skip the function
+    props.send(text);
+    setText("");
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -38,6 +46,7 @@ export default function PopupForm() {
             margin="dense"
             id="name"
             label="Comment"
+            onChange={(e) => setText(e.target.value)}
             fullWidth
           />
         </DialogContent>
@@ -45,7 +54,7 @@ export default function PopupForm() {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={addComment} color="primary">
             Add
           </Button>
         </DialogActions>
