@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import DropZone from "./DropZone";
+import Comment from "./Comment";
+import PopupForm from "./PopupForm";
 
 function App() {
+  const comments = ["Hello World!", "YoYo Check it out"];
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>File Sharing</h1>
+      <DropZone />
+      <h2>Comments</h2>
+      <main className="comments">
+        {comments.map((comment, i) => {
+          return <Comment key={i} comment={comment} />;
+        })}
+      </main>
+      <PopupForm />
     </div>
   );
 }

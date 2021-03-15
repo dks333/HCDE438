@@ -1,0 +1,16 @@
+.comment-row {
+  width: 100%;
+  display: flex;
+  justify-content: "center";
+  align-items: "center";
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.comment {
+  background: indigo;
+  color: white;
+  border-radius: 10px;
+  margin: 7px;
+  padding: 4px 12px;
+  position: relative;
+}
