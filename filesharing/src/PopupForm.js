@@ -18,6 +18,12 @@ export default function PopupForm(props) {
     setText("");
   }
 
+  function keyPressed(e) {
+    if (e.key === "Enter") {
+      addComment();
+    }
+  }
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -47,6 +53,7 @@ export default function PopupForm(props) {
             id="name"
             label="Comment"
             onChange={(e) => setText(e.target.value)}
+            onKeyPress={keyPressed}
             fullWidth
           />
         </DialogContent>

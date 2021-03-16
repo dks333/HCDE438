@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import "./DropZone.css";
+import { uploadFile } from "./db";
 
 function DropZone(props) {
   const [files, setFiles] = useState([]);
+
   const { getRootProps, getInputProps } = useDropzone({
     maxFiles: 1,
     onDrop: (acceptedFiles) => {
+      uploadFile(acceptedFiles[0]);
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {
@@ -16,6 +19,22 @@ function DropZone(props) {
       );
     },
   });
+
+  function thumb() {
+    if (files.length > 0) {
+      // skip
+    } else if (props.file) {
+      return (
+        <div className="thumb">
+          <div className="thumbInner">
+            <iframe src={props.file} className="file" title="Preview" />
+          </div>
+        </div>
+      );
+    } else {
+      return <div></div>;
+    }
+  }
 
   const thumbs = files.map((file) => (
     <div className="thumb" key={file.name}>
@@ -39,7 +58,10 @@ function DropZone(props) {
         <input {...getInputProps()} />
         <p>DROP or SELECT a single file here</p>
       </div>
-      <div className="thumbsContainer">{thumbs}</div>
+      <div className="thumbsContainer">
+        {thumb()}
+        {thumbs}
+      </div>
     </section>
   );
 }
